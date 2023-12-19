@@ -1,0 +1,187 @@
+.Turns {
+  padding: 0 .5rem;
+}
+
+.form-turns-container {
+  border: 1px solid rgba(128, 128, 128, 0.274); 
+  box-shadow: -8px 9px 17px 0px rgb(29 24 30 / 45%); 
+}
+
+.form {
+  padding: 1rem .5rem;
+}
+
+.banner-turns {
+  background-image: url('../../public/images/turns.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 1rem;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+label {
+  font-size: 1.1rem;
+}
+
+input {
+  outline: none;
+}
+
+.name-email {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.span-form {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.label-name-email {
+  display: flex;
+  gap: .5rem;
+}
+
+.label-name-email input {
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 1rem;
+}
+
+.block-condition {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.label-checkbox {
+  display: flex;
+  gap: .3rem;
+}
+
+.service-text {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  margin-bottom: 1rem;
+}
+
+.textarea {
+  width: 100%;
+  height: 90px;
+  overflow: auto;
+  padding: 1rem;
+  outline: none;
+  resize: none;
+}
+
+.hour-day {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-submit {
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.btn-submit:hover {
+  background-color: black;
+}
+
+.turns-paragraphs {
+  margin-top: 4rem;
+}
+
+.turns-paragraphs p {
+  margin: 1rem 0;
+}
+
+.turns-paragraphs p, .turns-paragraphs h3 {
+  line-height: 1.7;
+  padding: 0 1rem;
+}
+
+.turns-paragraphs h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.turns-paragraphs h3 {
+  margin-top: 1rem;
+}
+
+.services-user {
+  height: 220px;
+  border: 1px solid rgba(128, 128, 128, 0.452);
+  overflow-y: auto;
+  padding: .3rem;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.manicure-service-user {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.Turns select {
+  padding: .5rem;
+  font-size: 1rem;
+  width: 40%;
+  border: none;
+  outline: none;
+  border: 1px solid var(--color-primary);
+}
+
+
+@media screen and (min-width:1024px) {
+  .Turns {
+    padding: 0;
+  }
+  .form-turns-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .banner-turns {
+    width: 50%;
+    height: auto;
+  }
+
+  .form {
+    width: 50%;
+    padding: 2rem 1.5rem;
+  }
+
+  .banner-turns {
+    background-image: url('../../public/images/turns-pc.jpg');
+  }
+
+}

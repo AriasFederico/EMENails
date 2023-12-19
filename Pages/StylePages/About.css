@@ -1,0 +1,152 @@
+.presentation {
+  padding: 0 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.title-about-mobile {
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.paragraph-about {
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.icon-direction {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.image-emenails {
+  background-image: url('../public/images/image-emenails.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.arrow-paragraph {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.icon-arrow-paragraph {
+  width: 30px;
+  align-self: flex-start;
+}
+
+
+.icon-direction {
+  width: 30px;
+  transition: all .2s;
+}
+
+.tel {
+  width: 20px;
+}
+
+.icon-flex {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .5rem;
+}
+
+.icon-flex span {
+  font-size: 1.1rem;
+}
+
+.value-icon {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.direction-container h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.direction-container {
+  padding: 0 1rem;
+}
+
+.container-directions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.component-comments-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.component-comments-user-container h2 {
+  margin-top: 1.5rem;
+  padding: 0 .5rem;
+  color: var(--color-primary);
+}
+
+@media screen and (min-width:1024px) {
+
+  .direction-container {
+    padding: 0;
+  }
+
+  .presentation {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .arrow-paragraph {
+    padding-left: 1rem;
+  }
+
+  .title-about-mobile {
+    font-size: 2rem;
+  }
+
+  .paragraph-about {
+    max-width: 700px;
+    font-size: 1.4rem;
+    margin: 0 0 1rem;
+  }
+
+  .image-emenails {
+    width: 60%;
+    margin-bottom: 0;
+    height: 500px;
+  }
+
+  .flex-pc-image {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .container-directions {
+    gap: 1rem;
+  }
+
+  .icon-direction:hover {
+    transform: translateY(-2px);
+  }
+
+  .component-comments-user-container {
+    margin-top: 1rem;
+  }
+}

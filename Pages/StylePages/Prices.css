@@ -1,0 +1,98 @@
+.icon-price {
+  width: 35px;
+}
+
+.metod {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin-bottom: 2rem;
+}
+
+.Prices {
+  padding: 0 1rem;
+}
+
+.banner-prices {
+  height: 150px;
+  width: 100%;
+}
+
+.banner-manicure {
+  background-image: url('../../public//images/manicuria.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-pedicure {
+  background-image: url('../../public//images/pedicuria.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-hair {
+  background-image: url('../../public//images/peluqueria.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.prices-manicure-container,
+.prices-pedicure-container,
+.prices-hair-container,
+.prices-remove-container {
+  box-shadow: -8px 9px 17px 0px rgb(29 24 30 / 45%);
+  margin-bottom: 2rem;
+}
+
+.prices-manicure,
+.prices-pedicure,
+.prices-hair,
+.prices-remove {
+  padding: 1.7rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.span-prices {
+  margin-top: .5rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+
+
+@media screen and (min-width:1024px) { 
+
+  .Prices {
+    padding: 0;
+  }
+
+  .prices-manicure-container,
+  .prices-pedicure-container,
+  .prices-hair-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .prices-remove-container {
+    width: 80%;
+  }
+
+  .prices-manicure,
+  .prices-pedicure,
+  .prices-hair {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .banner-prices {
+    max-width: 400px;
+    height: auto;
+  }
+
+}

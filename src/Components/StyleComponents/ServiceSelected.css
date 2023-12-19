@@ -1,0 +1,22 @@
+.ServiceSelected {
+  background-color: var(--color-primary);
+  padding: .5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ServiceSelected p {
+  color: white;
+  user-select: none;
+}
+
+.icon-delete {
+  width: 30px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.icon-delete:hover {
+  transform: rotate(7deg);
+}

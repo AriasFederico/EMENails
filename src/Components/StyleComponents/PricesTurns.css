@@ -1,0 +1,162 @@
+.PricesTurns {
+  padding: 0 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  height: 100%;
+  padding-right: 1rem;
+}
+
+.title-prices {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-primary);
+}
+
+.paragraph-prices {
+  background-color: var(--color-primary);
+  font-size: 1.2rem;
+  padding: .3rem .7rem;
+  color: white;
+  font-weight: 100;
+}
+
+.prices-p {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.prices-animation {
+  margin-top: .7rem;
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+}
+
+.icon-arrow {
+  width: 40px;
+  height: 30px;
+  animation: arrow-prices 1s infinite;
+}
+
+.prices-arrow {
+  color: black;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.myturns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-image:url('../../../public/images/turns.jpg') ;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  box-shadow: -8px 9px 17px 0px rgb(29 24 30 / 45%);
+  padding: 1.3rem .5rem;
+}
+
+.turns-container {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.568);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .5rem;
+}
+
+.myturns-btn-turns {
+  color: white;
+  font-size: 1.1rem;
+  text-decoration: none;
+  background-color: black;
+  padding: .2rem .7rem;
+}
+
+.turns-container p {
+  font-size: 1.1rem;
+}
+
+.title-myturns {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.title-icon-myturns {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icon-candy {
+  width: 30px;
+  animation: tree .8s infinite;
+}
+
+@media screen and (min-width:1024px) {
+  .PricesTurns {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    height: 370px;
+    margin-bottom: 3rem;
+    gap: 0;
+  }
+
+  .prices {
+    width: 55%;
+  }
+
+  .myturns-container {
+    padding: 0;
+  }
+
+  .myturns {
+    width: 45%;
+    height: 100%;
+    padding: 1.5rem .5rem;
+  }
+
+  .title-prices {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+  }
+}
+
+
+@keyframes arrow-prices {
+  0% {
+    transform: translateX(5px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
+}

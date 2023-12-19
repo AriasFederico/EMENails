@@ -1,0 +1,120 @@
+.Carousel {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  margin-bottom: 2.5rem;
+}
+
+.manicure {
+  background-image: url(../../../public/images/manicuria.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+.pedicure {
+  background-image: url(../../../public/images/pedicuria.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hair {
+  background-image: url(../../../public/images/peluqueria.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.smoothing {
+  background-image: url(../../../public/images/alisados.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bijouterie {
+  background-image: url(../../../public/images/bijouterie.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner {
+  display: flex;
+  gap: .2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  box-shadow: inset -3px -9px 20px 0px rgb(35 24 24 / 79%);
+}
+
+.link-banner {
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  padding: .2rem .7rem .3rem;
+  font-size: 1rem;
+}
+
+.link-banner:hover {
+  background-color: black;
+}
+
+.title-service {
+  color: white;
+  font-weight: 600;
+  font-size: 1.7rem;
+  padding-right: 50%;
+}
+
+.title-service-carousel {
+  color: white;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding-right: 50%;
+}
+
+.banner-carousel {
+  width: 100%;
+}
+
+.carousel-banners {
+  display: grid;
+  grid-template-columns: repeat(4, 80%);
+  grid-template-rows: 190px;
+  overflow-x: auto;
+  gap: .2rem;
+}
+
+
+
+@media screen and (min-width:1024px) {
+  
+  .Carousel {
+    flex-direction: row;
+  }
+
+  .carousel-banners {
+    width: 60%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50%;
+    gap: .5rem;
+  }
+
+  .manicure {
+    width: 50%;
+    height: 380px;
+    padding: 2rem;
+  }
+
+  .title-service {
+    font-size: 2.3rem;
+  }
+
+  .title-service-carousel {
+    font-size: 1.5rem;
+  }
+}
