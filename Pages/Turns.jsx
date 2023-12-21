@@ -1,11 +1,19 @@
 import './StylePages/Turns.css'
 import { ServiceSelected } from '../src/Components/ServiceSelected';
 import { useLogicForm } from '../src/hooks/useLogicForm.js';
+import { useContext, useEffect } from 'react';
+import { TurnsContext } from '../src/Context/TurnsContext.jsx';
 
 export const Turns = () => {
-
-
-  const {selectedServicesList, handleSelectChange, onInputChange, formValue,deleteItem, onInputSubmit} = useLogicForm();
+  const {selectedServicesList,
+  handleSelectChange, 
+  onInputChange, 
+  formValue,
+  deleteItem, 
+  onInputSubmit,
+  handleSelectDay,
+  handleSelectHour,
+  handleSelectCondition} = useLogicForm();
 
   const {
     name,
@@ -13,13 +21,14 @@ export const Turns = () => {
     tel
   } = formValue;
 
+  const {turns} = useContext(TurnsContext)
+
 
   return (
     <section className="Turns">
       <h1 className="title-about-mobile">Solicitar Turno</h1>
       <div className="form-turns-container">
         <div className="banner-turns"></div>
-
         <form className='form' onSubmit={onInputSubmit}>
           <div className="name-email">
             <label htmlFor="name" className='label-name-email'>Nombre:
@@ -45,15 +54,13 @@ export const Turns = () => {
             </label>
           </div>
 
-
-
           <div className="block-condition">
             <span>Presenta alguna condición médica ?</span>
-            <select name="none" id="">
-              <option value="none">Ninguno</option>
-              <option value="diabetes">Diabetes</option>
-              <option value="treatments">Tratamientos oncologicos</option>
-              <option value="allergy">Alergias</option>
+            <select name="condition"  onChange={handleSelectCondition}>
+              <option value="Ninguno">Ninguno</option>
+              <option value="Diabetes">Diabetes</option>
+              <option value="Tratamientod oncologicos">Tratamientos oncologicos</option>
+              <option value="Alergias">Alergias</option>
             </select>
           </div>
 
@@ -101,7 +108,7 @@ export const Turns = () => {
             </div>
 
             <div className="container-services-user">
-              <span className='span-form'>Servicios deseados</span>
+              <span className='span-form-services-s'>Servicios deseados</span>
               <div className="services-user">
               {
                 selectedServicesList && selectedServicesList.map((item, index) => {
@@ -117,7 +124,7 @@ export const Turns = () => {
           <div className="hour-day">
             <div className="day">
               <span className='span-form'>Días disponibles</span>
-              <select name="day">
+              <select name="day" onChange={handleSelectDay}>
                 <option value="lunes">Lunes</option>
                 <option value="martes">Martes</option>
                 <option value="miercoles">Miércoles</option>
@@ -128,7 +135,7 @@ export const Turns = () => {
 
             <div className="hour">
               <span className='span-form'>Horas disponibles</span>
-              <select name="hour">
+              <select name="hour" onChange={handleSelectHour}>
                 <option value="9:30">09:30</option>
                 <option value="14:30">14:30</option>
                 <option value="16:00">16:00</option>
@@ -144,6 +151,13 @@ export const Turns = () => {
 
         </form>
       </div>
+
+      <p>{turns.name}</p>
+      <p>{turns.condition}</p>
+      <p>{turns.services}</p>
+      <p>{turns.day}</p>
+      <p>{turns.hour}</p>
+
 
       <div className="turns-paragraphs">
         <h2>Términos y detalles importantes para su turno</h2>

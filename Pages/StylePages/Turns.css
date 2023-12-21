@@ -151,6 +151,13 @@ input {
   flex-wrap: wrap;
 }
 
+.container-services-user {
+  margin: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
 .Turns select {
   padding: .5rem;
   font-size: 1rem;
@@ -158,6 +165,13 @@ input {
   border: none;
   outline: none;
   border: 1px solid var(--color-primary);
+}
+
+.day,
+.hour {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 

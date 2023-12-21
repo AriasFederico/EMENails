@@ -51,10 +51,10 @@ export const NavBar = () => {
           </div>
 
           <div className="links-menu-enable">
-            <a href={'/'} className='link-enable' onClick={handleMenu}>INICIO</a>
-            <a href={'/turns'} className='link-enable' onClick={handleMenu}>TURNOS</a>
-            <a href={'/pricing'} className='link-enable' onClick={handleMenu}>PRECIOS</a>
-            <a href={'/about'} className='link-enable' onClick={handleMenu}>SOBRE EMENAILS</a>
+            <NavLink to={'/'} className='link-enable' onClick={handleMenu}>INICIO</NavLink>
+            <NavLink to={'/turns'} className='link-enable' onClick={handleMenu}>TURNOS</NavLink>
+            <NavLink to={'/pricing'} className='link-enable' onClick={handleMenu}>PRECIOS</NavLink>
+            <NavLink to={'/about'} className='link-enable' onClick={handleMenu}>SOBRE EMENAILS</NavLink>
 
             <img src={iconChristmas} alt="" className='icon-tree'/>
           </div>

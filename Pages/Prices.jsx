@@ -75,6 +75,7 @@ export const Prices = () => {
 
         <div className="prices-remove-container">
           <div className="prices-remove">
+            <span className="span-prices">Para remover</span>
             <ItemPricing name={'Semipermanente'} price={datos.objectPrice.price} />
             <ItemPricing name={'Kapping (ajeno)'} price={datos.objectPrice.price} />
             <ItemPricing name={'Soft-gel'} price={datos.objectPrice.price} />

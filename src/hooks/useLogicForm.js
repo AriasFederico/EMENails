@@ -1,26 +1,41 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TurnsContext } from "../Context/TurnsContext.jsx";
 export const useLogicForm = () => {
 
-  const [infoTurn, setInfoTurn] = useState({
-    name:'',
-    services:''
-  });
+  const { turns, setTurns } = useContext( TurnsContext )
 
   const [formValue, setFormValue] = useState({
     name:'',
-    email:'',
-    tel:''
+    email:''
   })
   
   const [selectedServicesList, setSelectedServicesList] = useState([]);
+  const [selectedDay, setSelectedDay] = useState('');
+  const [selectedHour, setSelectedHour] = useState('');
+  const [selectedCondition, setSelectedCondition] = useState('Ninguno');
 
   const handleSelectChange = (e) => {
-    console.log(e.target.value)
     setSelectedServicesList([
       ...selectedServicesList,
       e.target.value
     ])
     e.target.selectedIndex = 0;
+  }
+
+  const handleSelectDay = (e) => {
+    setSelectedDay(e.target.value)
+    
+  }
+
+  const handleSelectHour = (e) => {
+    setSelectedHour(e.target.value)
+  }
+
+  const handleSelectCondition = (e) => {
+    const newValue = e.target.value;
+    setSelectedCondition(() => {
+      return newValue;
+    });
   }
 
   const onInputChange = (event) => {
@@ -31,20 +46,25 @@ export const useLogicForm = () => {
     })
   }
 
-  
   const deleteItem = () => {
     console.log('asd')
   }
 
   const onInputSubmit = (e) => {
-    e.preventDefault()
-    console.log(formValue)
-    console.log(selectedServicesList)
-    setInfoTurn({
-      ...infoTurn,
-      name:formValue.name,
-      services:selectedServicesList
-    })
+    e.preventDefault();  
+  
+    setTurns(() => {
+      const updatedTurns = {
+        name: formValue.name,
+        condition: selectedCondition,
+        services: selectedServicesList.join(' - '),
+        day: selectedDay,
+        hour: selectedHour,
+        tel: formValue.tel,
+      };
+      console.log(updatedTurns); 
+      return updatedTurns;
+    });
   }
 
   return {
@@ -54,6 +74,9 @@ export const useLogicForm = () => {
     formValue,
     deleteItem,
     onInputSubmit,
-    infoTurn
+    handleSelectDay,
+    handleSelectHour,
+    handleSelectCondition
   }
 }
+

@@ -1,7 +1,12 @@
+import { NavLink } from 'react-router-dom'
 import iconArrow from '../../public/icons/icon-arrow.png'
 import './StyleComponents/PricesTurns.css'
+import { TurnsContext } from '../Context/TurnsContext.jsx'
+import { useContext, useEffect } from 'react'
 
 export const PricesTurns = () => {
+
+  const {turns} = useContext(TurnsContext);
 
   return (
     <section className='PricesTurns'>
@@ -22,15 +27,7 @@ export const PricesTurns = () => {
         <div className="title-icon-myturns">
           <h3 className='title-myturns'>Mis turnos</h3>
         </div>
-        <div className="turns-container">
-          <p>No tenes turnos asignados</p>
-          <a href={'/turns'} className='myturns-btn-turns' >Solicitar un turno</a>
-        </div>
       </aside>
-
-      <section className='comments'>
-
-      </section>
     </section>
   )
 }
