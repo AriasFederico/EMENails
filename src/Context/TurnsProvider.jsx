@@ -2,22 +2,16 @@ import { useState, useEffect } from "react"
 import { TurnsContext } from "./TurnsContext.jsx"
 
 export const TurnsProvider = ({children}) => {
-  //recibe los props los childrens
+  
+  const getTurns = localStorage.getItem('turns')
+  const turnData = getTurns ? JSON.parse(getTurns) : [];
 
-  const initialTurns = JSON.parse(localStorage.getItem("turns")) || {
-    name: '',
-    condition: '',
-    services: '',
-    tel:'',
-    day:'',
-    hour:''
-  };
+  const validData = Array.isArray(turnData) ? turnData : [];
+  const [turns, setTurns] = useState(validData);
 
-  const [turns, setTurns] = useState(initialTurns);
-
-  useEffect(() => {
-    localStorage.setItem("turns", JSON.stringify(turns));
-  }, [turns]);
+  useEffect(()=>{
+    localStorage.setItem("turns", JSON.stringify(turns))
+  },[turns])
 
   return(
     <TurnsContext.Provider value={{turns,setTurns}}>

@@ -1,34 +1,47 @@
-import { useContext, useState } from "react";
+import { useContext, useState,useRef, useEffect } from "react";
 import { TurnsContext } from "../Context/TurnsContext.jsx";
-export const useLogicForm = () => {
+import emailjs from 'emailjs-com';
 
-  const { turns, setTurns } = useContext( TurnsContext )
+export const useLogicForm = () => {
+  const { turns, setTurns } = useContext(TurnsContext);
+
+  const formRef = useRef()
 
   const [formValue, setFormValue] = useState({
-    name:'',
-    email:''
-  })
-  
-  const [selectedServicesList, setSelectedServicesList] = useState([]);
-  const [selectedDay, setSelectedDay] = useState('');
-  const [selectedHour, setSelectedHour] = useState('');
+    name: '',
+    email: '',
+    tel: ''
+  });
+
+  const [selectedServicesList, setSelectedServicesList] = useState('');
+  const [selectedDay, setSelectedDay] = useState('Lunes');
+  const [selectedHour, setSelectedHour] = useState('9:30');
   const [selectedCondition, setSelectedCondition] = useState('Ninguno');
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [resultApi, setResultApi] = useState(false);
+
+  const [deletedTurn, setDeletedTurn] = useState(false);
+
   const handleSelectChange = (e) => {
-    setSelectedServicesList([
-      ...selectedServicesList,
-      e.target.value
-    ])
+    const newService = e.target.value;
+    setSelectedServicesList((prevServices) => {
+      return prevServices ? `${prevServices}  /  ${newService}` : newService;
+    });
     e.target.selectedIndex = 0;
   }
 
+  const handleSelectClear = (e) => {
+    e.preventDefault()
+    setSelectedServicesList('')
+  }
+
   const handleSelectDay = (e) => {
-    setSelectedDay(e.target.value)
-    
+    setSelectedDay(e.target.value);
   }
 
   const handleSelectHour = (e) => {
-    setSelectedHour(e.target.value)
+    setSelectedHour(e.target.value);
   }
 
   const handleSelectCondition = (e) => {
@@ -39,33 +52,117 @@ export const useLogicForm = () => {
   }
 
   const onInputChange = (event) => {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     setFormValue({
       ...formValue,
-        [name]:value
-    })
-  }
-
-  const deleteItem = () => {
-    console.log('asd')
-  }
-
-  const onInputSubmit = (e) => {
-    e.preventDefault();  
-  
-    setTurns(() => {
-      const updatedTurns = {
-        name: formValue.name,
-        condition: selectedCondition,
-        services: selectedServicesList.join(' - '),
-        day: selectedDay,
-        hour: selectedHour,
-        tel: formValue.tel,
-      };
-      console.log(updatedTurns); 
-      return updatedTurns;
+      [name]: value
     });
   }
+
+  const deleteItem = async (index) => {    
+    const canceledTurn = turns[index];
+
+    const userConfirmed = window.confirm('¿Estás segura de que deseas cancelar el turno?');
+    if (!userConfirmed) {
+        return;
+    }
+
+    try {
+      setIsLoading(true);
+      const result = await emailjs.send(
+        "service_muu285h",
+        "template_cjvogak",
+        {
+          name: canceledTurn.name,
+          tel: canceledTurn.tel,
+          day: canceledTurn.day,
+          hour: canceledTurn.hour,
+        },
+        "Y-InVZhwcqF1MreUr"
+      );
+
+      console.log(result.text);
+
+      if(result.status === 200){
+        const newTurns = turns.filter((_, i) => i !== index);
+        setDeletedTurn(true)
+        setTurns(newTurns);
+      } else {
+        return
+      }
+    
+      setTimeout(()=> {
+        setDeletedTurn(false)
+      }, 4000)
+
+      
+
+    } catch (error) {
+      console.error('Error al enviar el correo de cancelación:', error);
+    }
+  }
+
+  const resetStates = () => {
+    setFormValue({
+      name: '',
+      email: '',
+      tel: ''
+    })
+    setSelectedServicesList('')
+    setSelectedHour('9:30')
+    setSelectedCondition('Ninguno')
+  }
+
+  const onInputSubmit = async (e) => {
+    e.preventDefault();
+  
+    const newTurn = {
+      name: formValue.name,
+      tel: formValue.tel,
+      day: selectedDay,
+      hour: selectedHour,
+      service: selectedServicesList,
+      condition: selectedCondition,
+    };
+  
+    await setTurns((prevTurns) => [...prevTurns, newTurn]);
+  
+    const {
+      name,
+      service,
+      tel,
+      day,
+      hour,
+      condition
+    } = newTurn;
+  
+    try {
+      setIsLoading(true);
+      const result = await emailjs.send("service_muu285h","template_wnta86i",{
+        service: service,
+        name: name,
+        tel: tel,
+        day: day,
+        hora: hour,
+        condition: condition,
+        }, "Y-InVZhwcqF1MreUr");
+  
+      console.log(result.text);
+      console.log(newTurn)
+      result.status === 200 && setResultApi(true)
+
+      setTimeout(()=> {
+        setResultApi(false)
+      }, 4000)
+
+      setIsLoading(false);
+
+      resetStates()
+
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+    }
+  };
 
   return {
     selectedServicesList,
@@ -76,7 +173,12 @@ export const useLogicForm = () => {
     onInputSubmit,
     handleSelectDay,
     handleSelectHour,
-    handleSelectCondition
-  }
-}
+    handleSelectCondition,
+    formRef,
+    handleSelectClear,
+    isLoading,
+    resultApi,
+    deletedTurn
+  };
 
+};

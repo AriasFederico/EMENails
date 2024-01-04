@@ -1,19 +1,28 @@
 import './StylePages/Turns.css'
-import { ServiceSelected } from '../src/Components/ServiceSelected';
 import { useLogicForm } from '../src/hooks/useLogicForm.js';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { TurnsContext } from '../src/Context/TurnsContext.jsx';
+import { NavLink } from 'react-router-dom';
+import { IsLoadingComponent } from '../src/Components/IsLoadingComponent.jsx';
+import { ResultApi } from '../src/Components/ResultApi.jsx';
 
 export const Turns = () => {
-  const {selectedServicesList,
+  const {
+  selectedServicesList,
   handleSelectChange, 
   onInputChange, 
   formValue,
-  deleteItem, 
   onInputSubmit,
   handleSelectDay,
   handleSelectHour,
-  handleSelectCondition} = useLogicForm();
+  handleSelectCondition,
+  formRef,
+  handleSelectClear,  
+  isLoading,
+  resultApi
+} = useLogicForm();
+
+  const [questState, setQuestState] = useState(false);
 
   const {
     name,
@@ -21,36 +30,45 @@ export const Turns = () => {
     tel
   } = formValue;
 
-  const {turns} = useContext(TurnsContext)
+  const handleMenu = () => {
+    window.scrollTo(0,0);
+  }
 
+  const handleQuestState = (e) => {
+    e.preventDefault()
+    setQuestState(!questState)
+  }
+
+
+  const {turns, setTurns} = useContext(TurnsContext)
+
+  useEffect(() => {
+    // Asegúrate de que "turns" esté definido antes de acceder a sus propiedades
+    if (turns === undefined) {
+      setTurns([]);
+    }
+  }, [turns, setTurns]);
 
   return (
     <section className="Turns">
-      <h1 className="title-about-mobile">Solicitar Turno</h1>
       <div className="form-turns-container">
         <div className="banner-turns"></div>
-        <form className='form' onSubmit={onInputSubmit}>
+        <form className='form' onSubmit={onInputSubmit} ref={formRef}>
           <div className="name-email">
             <label htmlFor="name" className='label-name-email'>Nombre:
               <input type="text"
               name="name"
               value={name}
-              onChange={onInputChange} />
+              onChange={onInputChange}
+              required />
             </label>
 
-            <label htmlFor="email" className='label-name-email'>Correo:
-              <input type="text"
-              name="email"
-              required
-              value={email}
-              onChange={onInputChange} />
-            </label>
-
-            <label htmlFor="name" className='label-name-email'>Teléfono: <span>221</span>
+            <label htmlFor="tel" className='label-name-email'>Teléfono: <span className='hash'>221</span>
               <input type="text"
               name="tel"
               value={tel}
-              onChange={onInputChange} />
+              onChange={onInputChange}
+              required />
             </label>
           </div>
 
@@ -59,7 +77,7 @@ export const Turns = () => {
             <select name="condition"  onChange={handleSelectCondition}>
               <option value="Ninguno">Ninguno</option>
               <option value="Diabetes">Diabetes</option>
-              <option value="Tratamientod oncologicos">Tratamientos oncologicos</option>
+              <option value="Tratamientos oncologicos">Tratamientos oncologicos</option>
               <option value="Alergias">Alergias</option>
             </select>
           </div>
@@ -104,19 +122,15 @@ export const Turns = () => {
                 <option value="Remover Soft-gel">+ Soft-gel</option>
                 <option value="Remover Esculpidas">+ Esculpidas</option>
               </select>
-
             </div>
 
             <div className="container-services-user">
-              <span className='span-form-services-s'>Servicios deseados</span>
+              <span className='span-form'>Servicios deseados</span>
               <div className="services-user">
-              {
-                selectedServicesList && selectedServicesList.map((item, index) => {
-                  return (
-                    <ServiceSelected service={item} key={index} functionDelete={deleteItem} />
-                  );
-                })
-              }
+              {selectedServicesList && selectedServicesList}
+              </div>
+              <div className="services-user-clear">
+                <button className='bt-clear-services-user' onClick={handleSelectClear}>Limpiar</button>
               </div>
             </div>
           </div>
@@ -125,12 +139,24 @@ export const Turns = () => {
             <div className="day">
               <span className='span-form'>Días disponibles</span>
               <select name="day" onChange={handleSelectDay}>
-                <option value="lunes">Lunes</option>
-                <option value="martes">Martes</option>
-                <option value="miercoles">Miércoles</option>
-                <option value="jueves">Jueves</option>
-                <option value="viernes">Viernes</option>
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
               </select>
+              <div className='text-quest-container'>
+                <div className={questState ? "text-quest" : 'quest-display-none'} >
+                  <p>
+                    Si selecciona un turno para un día específico y ese día es posterior al día actual, su turno se programará para la próxima instancia de ese día disponible. Por ejemplo, si hoy es lunes y elige un turno para el martes, recibirá su turno el mismo martes.
+                  </p>
+                  <p>
+                    No obstante, si hoy es lunes y decide programar un turno para el mismo lunes, su turno se programará para el lunes de la semana siguiente. Esta medida se toma para asegurar una programación justa y ordenada, permitiendo que los turnos se asignen de manera equitativa.
+                  </p>
+                </div>
+                <button className={questState ? 'btn-quest-active' : 'btn-quest'} onClick={handleQuestState}>?</button>
+              </div>
+
             </div>
 
             <div className="hour">
@@ -149,31 +175,51 @@ export const Turns = () => {
           className='btn-submit'
           >Solicitar turno</button>
 
+          {isLoading && <IsLoadingComponent/>}
+          {resultApi && <ResultApi/>}
         </form>
+
       </div>
 
-      <p>{turns.name}</p>
-      <p>{turns.condition}</p>
-      <p>{turns.services}</p>
-      <p>{turns.day}</p>
-      <p>{turns.hour}</p>
-
-
       <div className="turns-paragraphs">
+
+
         <h2>Términos y detalles importantes para su turno</h2>
 
-        <p>Estaremos encantados de recibirle y proporcionarle nuestro servicio. Sin embargo, es importante señalar que el tiempo máximo de espera después del horario programado es de 20 minutos. Después de ese periodo, lamentablemente, su turno será considerado como no asistido.</p>
+        <p>
+          Estaremos encantados de recibirle y proporcionarle nuestro servicio. Sin embargo, es importante señalar que el tiempo máximo de espera después del horario programado es de 20 minutos. Después de ese periodo, lamentablemente, su turno será considerado como no asistido.
+        </p>
 
-        <p>Una vez que haya completado el proceso de solicitud de turno con éxito, la información detallada de su turno estará disponible en la sección de <a href="/">inicio</a> de nuestra plataforma. Además, recibirá un correo electrónico en la dirección proporcionada durante el registro con todos los detalles necesarios.</p>
-
-        <p>Entendemos que pueden surgir imprevistos, y si experimenta algún problema para cancelar su turno desde la sección de inicio, le pedimos amablemente que se comunique con nosotros. Estamos para ayudarle y asegurarnos de que su experiencia sea lo más conveniente posible.</p>
-
-        <p>Le agradecemos nuevamente por elegirnos y confiar en nuestros servicios. Esperamos con entusiasmo atenderle en el horario programado.</p>
+        <p>
+          Le agradecemos nuevamente por elegirnos y confiar en nuestros servicios. Esperamos con entusiasmo atenderle en el horario programado.
+        </p>
 
         <p>Atentamente</p>
         
         <h3>EMENails</h3>
+
+        <div className="details-container">
+          <details className='details'>
+            <summary className='details-summary'>¿Dónde veo la información de mi turno?</summary>
+              <p className='details-summary-p'>
+                Después de completar el proceso de solicitud de turno con éxito, la información detallada
+                estará disponible en la sección de <NavLink to='/' onClick={handleMenu}>Inicio</NavLink> de nuestra plataforma. También puede acceder
+                a los detalles directamente en su dispositivo, ya que la información se guarda localmente
+                para su conveniencia.
+              </p>
+          </details>
+
+          <details className='details'>
+            <summary className='details-summary'>¿Cómo cancelo mi turno?</summary>
+            <p className='details-summary-p'>
+              Para cancelar su turno, simplemente vaya a la sección de inicio de nuestra plataforma
+              y busque la opción de cancelar turno. Si encuentra algún problema, no dude en 
+              comunicarse con nosotros para obtener asistencia.
+            </p>
+          </details>
+        </div>
       </div>
     </section>
   )
 }
+

@@ -4,7 +4,7 @@ export const Comments = () => {
 
   return (
     <section className="Comments">
-      <h4 className="title-comments">Comentarios y valoraciones</h4>
+      <h2 className="title-comments">Comentarios y valoraciones</h2>
       <div className='carousel-comments'>
         <UserComments 
         user={'Lucía'} 

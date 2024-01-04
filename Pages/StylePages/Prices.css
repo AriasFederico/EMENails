@@ -59,9 +59,8 @@
 
 .span-prices {
   margin-top: .5rem;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--color-primary);
+  color: var(--color-tertiary);
+  font-weight: 600;
 }
 
 
@@ -76,7 +75,7 @@
   .prices-pedicure-container,
   .prices-hair-container {
     display: flex;
-    width: 100%;
+    width: 90%;
   }
 
   .prices-remove-container {

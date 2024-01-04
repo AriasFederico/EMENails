@@ -48,31 +48,35 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding: 1.5rem;
-  box-shadow: inset -3px -9px 20px 0px rgb(35 24 24 / 79%);
+  box-shadow: inset -3px -9px 20px 0px var(--color-shadow-inset);
 }
 
 .link-banner {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--color-black-alpha);
+  color: var(--color-white);
   text-decoration: none;
-  padding: .2rem .7rem .3rem;
-  font-size: 1rem;
+  padding: .3rem .3rem;
+  font-size: .65rem;
 }
 
 .link-banner:hover {
-  background-color: black;
+  background-color: var(--color-secondary);
 }
 
 .title-service {
-  color: white;
+  color: var(--color-white);
   font-weight: 600;
-  font-size: 1.7rem;
   padding-right: 50%;
 }
 
 .title-service-carousel {
-  color: white;
-  font-weight: 600;
+  color: var(--color-white);
+  font-size: 1.7rem;
+  padding-right: 50%;
+}
+
+.secundary {
+  color: var(--color-white);
   font-size: 1.4rem;
   padding-right: 50%;
 }
@@ -106,15 +110,8 @@
 
   .manicure {
     width: 50%;
-    height: 380px;
+    height: 350px;
     padding: 2rem;
   }
 
-  .title-service {
-    font-size: 2.3rem;
-  }
-
-  .title-service-carousel {
-    font-size: 1.5rem;
-  }
 }

@@ -1,7 +1,6 @@
 
 .comment-user {
-  /* background-color: var(--color-primary); */
-  box-shadow: -8px 9px 17px 0px rgba(29, 24, 30, 0.356);
+  box-shadow: -8px 9px 17px 0px var(--color-shadow);
   padding: 1.6rem 2rem;
   height: 100%;
   width: 100%;
@@ -18,7 +17,7 @@
 }
 
 .icon-quates {
-  width: 45px;
+  width: 35px;
 }
 
 .user-icon {
@@ -28,18 +27,16 @@
 }
 
 .icon-user {
-  width: 30px;
+  width: 25px;
 }
 
 .username {
-  font-size: 1.1rem;
   padding-bottom: .2rem;
 }
 
 .comment {
-  margin: 1.3rem 0;
+  margin: .3rem 0;
   padding: 0 2rem 1rem;
-  font-size: 1.2rem;
   user-select: none;
 }
 
@@ -48,9 +45,4 @@
     width: 100%;
     padding: 1.3rem 1.3rem;
   }
-
-  .comment {
-    font-size: 1.4rem;
-  }
-
 }

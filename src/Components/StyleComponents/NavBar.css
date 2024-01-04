@@ -27,8 +27,7 @@
 }
 
 .title-menu-mobile {
-  font-size: 1.7rem;
-  color: white;
+  color: var(--color-white);
   text-decoration: none;
 }
 
@@ -87,9 +86,8 @@
 }
 
 .link-enable {
-  color: white;
+  color: var(--color-white);
   text-decoration: none;
-  font-weight: 600;
 }
 
 @media screen and (min-width:1024px) {
@@ -128,8 +126,9 @@
   }
 
   .title-menu-pc {
-    font-size: 2rem;
-    color: white;
+    font-size: 1.89rem;
+    font-weight: 400;
+    color: var(--color-white);
   }
 
   .links-links-pc {
@@ -144,14 +143,9 @@
   }
 
   .link-page-pc {
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
-    font-size: 1.1rem;
     transition: color .3s;
-  }
-  
-  .link-page-pc:hover {
-    color: black;
   }
 
   .links-social-pc {
@@ -167,7 +161,8 @@
   }
 
   .icon-social-pc:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
+    
   }
   
   .icon-tree {
@@ -177,9 +172,9 @@
   }
 
   .active-select {
-    color: white;
-    font-size: 1.1rem;
     transition: color .3s;
+    text-decoration: none;
+    color: var(--color-white);
   }
 }
 

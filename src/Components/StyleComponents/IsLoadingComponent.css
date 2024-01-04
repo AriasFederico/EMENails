@@ -1,0 +1,12 @@
+.loading {
+  height: 5px;
+  width: 100%;
+  background-color: rgba(132, 206, 48, 0.63);
+  animation: loading 3s infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+}

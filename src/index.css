@@ -1,8 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 :root {
+  /* font family */
   --font-general: 'Lato', sans-serif;
-  --color-primary: #473249;
+
+
+  /* color primary */
+  --color-white: #ffff;
+  --color-primary: #553250;
+  --color-secondary: #62395c;
+  --color-tertiary:#834c7b;
+  --color-primary-alpha: #553250bb;
+
+  /*  */
+  --color-shadow-inset:#2318189f;
+  --color-shadow:#1d181e5b;
+  --color-black-alpha:#000000a9;
+  --color-black-alpha-border: #5a5a5a3d;
 }
 
 * {

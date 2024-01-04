@@ -13,10 +13,8 @@ export const Prices = () => {
   return (
 
     <section className="Prices">
-      <h1 className='title-about-mobile'>Precios de Servicios</h1>
-
       <div className="metod">
-        <p>Métodos de pago disponibles</p>
+        <p>Medios de pago disponibles</p>
         <img src={iconMasterCard} alt="" className='icon-price'/>
         <img src={iconVisa} alt="" className='icon-price'/>
         <img src={iconAmerican} alt="" className='icon-price'/>
@@ -30,21 +28,21 @@ export const Prices = () => {
           <div className="banner-prices banner-manicure"></div>
 
           <div className="prices-manicure">
-            <ItemPricing name={'Belleza de manos'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Esmaltado tradicional'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Esmaltado semi'} price={datos.objectPrice.price} />
+            <ItemPricing name={'Belleza de manos'} price={datos.manicure.bellezaDeManos} />
+            <ItemPricing name={'Esmaltado tradicional'} price={datos.manicure.esmaltadoTradicional} />
+            <ItemPricing name={'Esmaltado semi'} price={datos.manicure.esmaltadoSemi} />
 
             <span className="span-prices">Soft-gel</span>
 
-            <ItemPricing name={'Básica'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Simple'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Completa'} price={datos.objectPrice.price} />
+            <ItemPricing name={'Básica'} price={datos.manicure.sfBasico} />
+            <ItemPricing name={'Simple'} price={datos.manicure.sfDecoSimple} />
+            <ItemPricing name={'Completa'} price={datos.manicure.sfDecoCompleta} />
 
             <span className="span-prices">Kapping</span>
 
-            <ItemPricing name={'Básico'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Deco simples'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Deco completas'} price={datos.objectPrice.price} />
+            <ItemPricing name={'Básico'} price={datos.manicure.kpBasico} />
+            <ItemPricing name={'Deco simples'} price={datos.manicure.kpDecoSimple} />
+            <ItemPricing name={'Deco completas'} price={datos.manicure.kpDecoCompleta} />
           </div>
         </div>
 
@@ -52,34 +50,33 @@ export const Prices = () => {
           <div className="banner-prices banner-hair"></div>
 
           <div className="prices-hair">
-            <ItemPricing name={'Cortes simples'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Alisados'} price={'Según el largo'} string={true} />
-            <ItemPricing name={'Botox'} price={datos.objectPrice.price} />
+            <ItemPricing name={'Cortes simples'} price={datos.hair.corteSimple} />
+            <ItemPricing name={'Alisados'} price={`Desde $ ${datos.hair.alisado}`} string={true} />
+            <ItemPricing name={'Botox'} price={'Según el largo'} string={true} />
 
             <span className="span-prices">Tintura</span>
 
-            <ItemPricing name={'De EMENails'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Del cliente'} price={datos.objectPrice.price} />
+            <ItemPricing name={'De EMENails'} price={datos.hair.tinturaEmenails} />
+            <ItemPricing name={'Personal'} price={datos.hair.tinturaPersonal} />
           </div>
         </div>
 
         <div className="prices-pedicure-container">
           <div className="banner-prices banner-pedicure"></div>
-
           <div className="prices-pedicure">
-            <ItemPricing name={'Belleza de pies'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Deco de pies básico'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Bellezza de pies + semi'} price={datos.objectPrice.price} />
+            <ItemPricing name={'Belleza de pies'} price={datos.pedicure.bellezaDePies} />
+            <ItemPricing name={'Deco de pies básico'} price={datos.pedicure.decoDePiesBasico} />
+            <ItemPricing name={'Belleza de pies + semi'} price={datos.pedicure.decoDePiesSemi} />
           </div>
         </div>
 
         <div className="prices-remove-container">
           <div className="prices-remove">
             <span className="span-prices">Para remover</span>
-            <ItemPricing name={'Semipermanente'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Kapping (ajeno)'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Soft-gel'} price={datos.objectPrice.price} />
-            <ItemPricing name={'Esculpidas'} price={datos.objectPrice.price} />
+            <ItemPricing name={'Semipermanente'} price={datos.remove.semipermanente} />
+            <ItemPricing name={'Kapping (ajeno)'} price={datos.remove.removeKapping} />
+            <ItemPricing name={'Soft-gel'} price={datos.remove.removeSoftGel} />
+            <ItemPricing name={'Esculpidas'} price={datos.remove.removeEsculpidas} />
           </div>
         </div>
 

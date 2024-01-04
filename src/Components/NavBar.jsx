@@ -17,7 +17,10 @@ export const NavBar = () => {
 
   const [burguerState, setBurguerState] = useState(false);
 
+
+
   const handleMenu = () => {
+    window.scrollTo(0,0)
     setBurguerState(!burguerState)
   }
 
@@ -29,9 +32,9 @@ export const NavBar = () => {
           className='burguer-menu'
           onClick={handleMenu} />
 
-          <NavLink to='/' className='title-menu-mobile'><span className='span-menu-mobile-enable'>EMENails</span></NavLink>          
+          <NavLink to='/'className='title-menu-mobile'><span className='span-menu-mobile-enable'>EMENails</span></NavLink>          
 
-          <NavLink to='/' ><img src={iconEmenails} alt="EMENails" className='icon-emenails'/></NavLink>
+          <NavLink to='/'><img src={iconEmenails} alt="EMENails" className='icon-emenails'/></NavLink>
         </nav>
 
         <nav className={burguerState ? 'menu-mobile-enable' : 'display-menu-mobile-enable'}>
@@ -47,7 +50,7 @@ export const NavBar = () => {
              <a href="https://www.instagram.com/emenails25/"><img src={iconIg} alt="" className='icon-social'/></a>
             </div>
 
-            <NavLink to='/' ><img src={iconEmenails} alt="EMENails" className='icon-emenails'onClick={handleMenu} /></NavLink>
+            <NavLink to='/' ><img src={iconEmenails} alt="EMENails" className='icon-emenails' onClick={handleMenu} /></NavLink>
           </div>
 
           <div className="links-menu-enable">
@@ -66,7 +69,7 @@ export const NavBar = () => {
               <NavLink to='/' className='link-page-pc' >
                 <img src={iconEmenails} alt="EMENails" className='icon-emenails-pc'/>
               </NavLink>
-              <NavLink to='/' className='link-page-pc' >
+              <NavLink to='/' className='link-page-pc' onClick={handleMenu}>
                 <span className='title-menu-pc'>EMENails</span>
               </NavLink>
 
@@ -75,10 +78,10 @@ export const NavBar = () => {
 
             <div className="links-links-pc">
               <div className="links-page-pc">
-                <NavLink to='/' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} >INICIO</NavLink>
-                <NavLink to='/turns' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} >TURNOS</NavLink>
-                <NavLink to='/pricing' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} >PRECIOS</NavLink>
-                <NavLink to='about' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} >SOBRE EMENAILS</NavLink>
+                <NavLink to='/' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} onClick={handleMenu}>INICIO</NavLink>
+                <NavLink to='/turns' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} onClick={handleMenu}>TURNOS</NavLink>
+                <NavLink to='/pricing' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} onClick={handleMenu}>PRECIOS</NavLink>
+                <NavLink to='about' className={({isActive}) => (isActive ? 'active-select' : 'link-page-pc')} onClick={handleMenu}>SOBRE EMENAILS</NavLink>
               </div>
 
               <div className="links-social-pc">

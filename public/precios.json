@@ -1,5 +1,33 @@
 {
-  "objectPrice" : {
+  "objectPrice": {
     "price":"0,00"
+  },
+  "manicure": {
+    "bellezaDeManos":"4.500",
+    "esmaltadoTradicional": "2.500",
+    "esmaltadoSemi": "3.000",
+    "sfBasico": "7.000",
+    "sfDecoSimple": "7.200",
+    "sfDecoCompleta": "7.800",
+    "kpBasico":"3.500",
+    "kpDecoSimple":"4.000",
+    "kpDecoCompleta":"5.000"
+  },
+  "pedicure": {
+    "bellezaDePies":"3.800",
+    "decoDePiesBasico":"4.000",
+    "decoDePiesSemi":"6.000"
+  },
+  "hair": {
+    "corteSimple":"2.500",
+    "alisado":"5.000",
+    "tinturaEmenails":"3.000",
+    "tinturaPersonal":"2.500"
+  },
+  "remove": {
+    "semipermanente":"2.000",
+    "removeKapping":"2.500",
+    "removeSoftGel":"3.000",
+    "removeEsculpidas":"4.000"
   }
 }

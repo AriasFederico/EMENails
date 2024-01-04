@@ -1,8 +1,9 @@
 .Stars {
   display: flex;
   align-items: center;
+  gap: .2rem;
 }
 
 .icon-star {
-  width: 20px;
+  width: 15px;
 }

@@ -1,162 +1,129 @@
 .PricesTurns {
-  padding: 0 1rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
+  height: auto;
   margin-bottom: 3rem;
+  padding: 0 .5rem;
+}
+
+.turns {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.514);
+}
+
+.title-layer {
+  position: relative;
+  padding: .7rem 0;
+  margin-bottom: .7rem;
+}
+
+.line-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 50px;
+  background-color: black;
+}
+
+.banner-prices-container {
+  background-image: url(../../../public/images/banner-prices-turns.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 320px;
 }
 
 .prices {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  height: 100%;
-  padding-right: 1rem;
+  gap: .5rem;
+  padding: 0 .5rem 0 0;
+  margin-bottom: 2rem;
 }
 
-.title-prices {
+.h1-prices-turns {
+  margin-bottom: .5rem;
   font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--color-primary);
+  font-weight: normal;
 }
 
-.paragraph-prices {
-  background-color: var(--color-primary);
-  font-size: 1.2rem;
-  padding: .3rem .7rem;
-  color: white;
-  font-weight: 100;
-}
-
-.prices-p {
-  font-size: 1.4rem;
-  line-height: 1.3;
-  font-weight: 400;
-}
-
-.prices-animation {
-  margin-top: .7rem;
-  display: flex;
-  align-items: center;
-  gap: .2rem;
-}
-
-.icon-arrow {
-  width: 40px;
-  height: 30px;
-  animation: arrow-prices 1s infinite;
-}
-
-.prices-arrow {
-  color: black;
+.link-prices {
   text-decoration: none;
-  font-size: 1.5rem;
+  background-color: var(--color-tertiary);
+  color: var(--color-white);
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .5rem .7rem;
+  transition: all .3s;
 }
 
-.myturns {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-image:url('../../../public/images/turns.jpg') ;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 300px;
-  box-shadow: -8px 9px 17px 0px rgb(29 24 30 / 45%);
-  padding: 1.3rem .5rem;
-}
-
-.turns-container {
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.568);
-  width: 100%;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .5rem;
-}
-
-.myturns-btn-turns {
-  color: white;
-  font-size: 1.1rem;
-  text-decoration: none;
+.link-prices:hover {
   background-color: black;
-  padding: .2rem .7rem;
 }
 
-.turns-container p {
-  font-size: 1.1rem;
-}
-
-.title-myturns {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-}
-
-.title-icon-myturns {
-  margin: 0 auto;
+.turns-component {
   display: flex;
-  align-items: center;
-  gap: .5rem;
-  justify-content: center;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.icon-candy {
-  width: 30px;
-  animation: tree .8s infinite;
+.container-turns {
+  height: 250px;
+  overflow-y: auto;
+}
+
+.no-turns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4rem;
+  border: 1px solid var(--color-black-alpha-border);
+  padding: 1rem;
+}
+
+.no-turns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.btn-turns-request {
+  text-decoration: none;
+  background-color: var(--color-tertiary);
+  color: var(--color-white);
+  padding: .5rem 1rem;
+  font-size: .7rem;
+  transition: all .2s;
+}
+
+.btn-turns-request:hover {
+  background-color: black;
+}
+
+.p-banner {
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.582);
 }
 
 @media screen and (min-width:1024px) {
   .PricesTurns {
-    flex-direction: row;
-    justify-content: space-between;
+    display: flex;
+    gap: 2rem;
     padding: 0;
-    height: 370px;
-    margin-bottom: 3rem;
-    gap: 0;
+  }
+
+  .container-turns {
+    height: 500px;
+  }
+
+  .p-banner {
+    padding-right: 4rem;
   }
 
   .prices {
-    width: 55%;
-  }
-
-  .myturns-container {
-    padding: 0;
+    width: 70%;
+    margin: 0;
   }
 
   .myturns {
-    width: 45%;
-    height: 100%;
-    padding: 1.5rem .5rem;
-  }
-
-  .title-prices {
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: var(--color-primary);
-    margin-bottom: 1.2rem;
-  }
-}
-
-
-@keyframes arrow-prices {
-  0% {
-    transform: translateX(5px);
-  }
-
-  50% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(5px);
+    width: 30%;
   }
 }

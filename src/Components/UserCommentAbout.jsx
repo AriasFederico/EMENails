@@ -8,10 +8,6 @@ export const UserCommentAbout = () => {
         <label htmlFor="nameComment">Nombre:
           <input type="text" name="nameComment" className='name-email-boxcomment'/>
         </label>
-
-        <label htmlFor="email">Email:
-          <input type="text" name="email" className='name-email-boxcomment'/>
-        </label>
       </div>
 
       <textarea name="boxComment-text" id="boxComment" className='boxComment-text' placeholder='Comentario'></textarea>

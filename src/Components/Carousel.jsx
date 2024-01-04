@@ -1,35 +1,40 @@
 import './StyleComponents/Carousel.css'
 import { Stars } from './Stars'
+import { NavLink } from 'react-router-dom'
 
 export const Carousel = () => {
+
+  const handleMenu = () => {
+    window.scrollTo(0,0)
+  }
 
   return (
     <div className="Carousel">
       <div className="banner manicure">
-        <a href={'/turns'} className='link-banner' >Agendar</a>
-        <p className='title-service'>Servicio de manicuría</p>
+        <NavLink to={'/turns'} className='link-banner' onClick={handleMenu}>AGENDAR</NavLink>
+        <p className='title-service-carousel'>Servicio de manicuría</p>
         <Stars/>
       </div>
 
       <div className="carousel-banners">
         <div className='banner banner-carousel pedicure'>
-          <a href={'/turns'} className='link-banner' >Agendar</a>
-          <p className='title-service-carousel'>Pedicuría</p>
+          <NavLink to={'/turns'} className='link-banner' onClick={handleMenu} >AGENDAR</NavLink>
+          <p className='secundary'>Pedicuría</p>
           <Stars/>
         </div>
         <div className='banner banner-carousel hair'>
-          <a href={'/turns'} className='link-banner' >Agendar</a>
-          <p className='title-service-carousel'>Peluquería</p>
+          <NavLink to={'/turns'} className='link-banner' onClick={handleMenu} >AGENDAR</NavLink>
+          <p className='secundary'>Peluquería</p>
           <Stars/>
         </div>
         <div className='banner banner-carousel smoothing'>
-          <a href={'/turns'} className='link-banner' >Agendar</a>
-          <p className='title-service-carousel'>Alisados</p>
+          <NavLink to={'/turns'} className='link-banner' onClick={handleMenu} >AGENDAR</NavLink>
+          <p className='secundary'>Alisados</p>
           <Stars/>
         </div>
         <div className='banner banner-carousel bijouterie'>
-          <a href={'/about'} className='link-banner' >Visitar</a>
-          <p className='title-service-carousel'>Bijouterie</p>
+          <NavLink to={'/about'} className='link-banner' onClick={handleMenu} >VISITAR</NavLink>
+          <p className='secundary'>Bijouterie</p>
           <Stars/>
         </div>
       </div>
