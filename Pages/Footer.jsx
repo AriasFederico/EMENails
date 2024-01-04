@@ -1,11 +1,11 @@
 import './StylePages/Footer.css'
 import { NavLink } from 'react-router-dom'
 
-import iconMasterCard from '../public/icons/iconMasterCard.png'
-import iconVisa from '../public/icons/iconVisa.png'
-import iconAmerican from '../public/icons/iconAmerican.png'
-import iconMercado from '../public/icons/iconMercado.png'
-import iconDni from '../public/icons/iconDni.png'
+import iconMasterCard from '/public/icons/iconMasterCard.png'
+import iconVisa from '/public/icons/iconVisa.png'
+import iconAmerican from '/public/icons/iconAmerican.png'
+import iconMercado from '/public/icons/iconMercado.png'
+import iconDni from '/public/icons/iconDni.png'
 
 import iconWsp from '../public/icons/icon-wsp.png'
 import iconFb from '../public/icons/icon-fb.png'
