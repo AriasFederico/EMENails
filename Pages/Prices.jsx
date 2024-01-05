@@ -2,25 +2,11 @@ import datos from '../public/precios.json'
 import './StylePages/Prices.css'
 import { ItemPricing } from '../src/Components/ItemPricing'
 
-import iconMasterCard from '../public/icons/iconMasterCard.png'
-import iconVisa from '../public/icons/iconVisa.png'
-import iconAmerican from '../public/icons/iconAmerican.png'
-import iconMercado from '../public/icons/iconMercado.png'
-import iconDni from '../public/icons/iconDni.png'
-
 export const Prices = () => {
 
   return (
 
     <section className="Prices">
-      <div className="metod">
-        <p>Medios de pago disponibles</p>
-        <img src={iconMasterCard} alt="" className='icon-price'/>
-        <img src={iconVisa} alt="" className='icon-price'/>
-        <img src={iconAmerican} alt="" className='icon-price'/>
-        <img src={iconMercado} alt="" className='icon-price'/>
-        <img src={iconDni} alt="" className='icon-price'/>
-      </div>
 
       <div className="prices-container">
 
